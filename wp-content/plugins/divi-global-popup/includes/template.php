@@ -6,10 +6,7 @@
         <div class="popup-main-container">
             <div class="popup-content-container">
                 <span class="popup-close" onclick="hideDiviPopup()" title="Close">×</span>
-
-                <!-- Main Section -->
-                <div class="row g-2">
-                    <!-- Testimonial Section -->
+                <div class="row g-1">
                     <div class="col-lg-6">
                         <div class="testimonial-section h-100">
                            
@@ -26,12 +23,12 @@
                                                 <div class="testimonial-img-container">
                                                     <img src="<?php echo esc_url($plugin_url . 'assets/images/Lou Carpenter_profile.png'); ?>" class="testimonial-img" alt="Client 1">
                                                 </div>
+                                                
                                                 <div class="testimonial-quote">
                                                     <h6 class="mb-1">Lou Carpenter</h6>
                                                     <small class="text-muted d-block mb-2">Product Strategy, Digital Karma, LLC</small>
                                                     <p class="text-muted fst-italic">
-                                                        "We have been engaging with this team for a year now, and we are about to launch soon! This team is knowledgeable, reliable, and easy to work with. Project management has been on point and transparent with all actions being made. They are very polite, proactive, and easy to collaborate with. I highly recommend!"
-                                                    </p>
+                                                    "We have been engaging with this team for a year now, and we are about to launch soon! This team is knowledgeable, reliable, and easy to work with. Project management has been on point and with all actions being made. They are very polite, and easy to collaborate with. I highly recommend!"                                                    </p>
                                                     <div class="stars">
                                                         <img src="<?php echo esc_url($plugin_url . 'assets/images/rating__star.png'); ?>" alt="">
                                                     </div>
@@ -86,9 +83,9 @@
                         </div>
                     </div>
 
-                    <!-- Form Section -->
+                   
                     <div class="col-lg-6">
-                        <div class="form-section h-100">
+                        <div class="form-section h-100" >
                             <h3 class="fw-bold mb-1">Tell us about your project</h3>
                             <p class="text-muted mb-2">We'll provide a free consultation with cost and timeline estimates</p>
                             <?php echo do_shortcode('[contact-form-7 id="7db8993" title="Untitled"]'); ?>
@@ -114,7 +111,7 @@
                     
                     <div class="marquee-container">
                         <div class="marquee-content">
-                            <!-- Duplicate content for seamless looping -->
+                           
                             <div class="award-card">
                                 <img src="<?php echo esc_url($plugin_url . 'assets/images/bussinesfirm.png'); ?>" alt="Award 1">
                                 <span>Businesses Firms</span>

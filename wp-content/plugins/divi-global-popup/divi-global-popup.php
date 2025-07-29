@@ -12,7 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 add_action('wp_enqueue_scripts', 'fsp_enqueue_assets');
 function fsp_enqueue_assets() {
     if ( is_user_logged_in() ) {
-        wp_enqueue_style('fsp-style', plugin_dir_url(__FILE__) . 'assets/style.css');
+        //wp_enqueue_style('fsp-style', plugin_dir_url(__FILE__) . 'assets/style.css');
+        wp_enqueue_style('fsp-style', plugin_dir_url(__FILE__) . 'assets/style.css', array(), '1.0.0');
         wp_enqueue_script('fsp-script', plugin_dir_url(__FILE__) . 'assets/script.js', [], false, true);
     }
 }
