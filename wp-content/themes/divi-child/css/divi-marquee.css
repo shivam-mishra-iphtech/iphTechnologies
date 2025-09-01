@@ -1,0 +1,26 @@
+.row-slide {
+    overflow: hidden; /* Hides columns outside the view */
+    position: relative;
+}
+
+/* The custom wrapper created by our JavaScript */
+.row-slide > .et_pb_column_wrapper {
+    display: flex;
+    flex-wrap: nowrap; /* Ensures columns stay on one line */
+    transition: transform .6s ease-in-out; /* Add the smooth transition here */
+    will-change: transform; /* Performance optimization */
+    gap:30px;
+}
+
+/* Ensure Divi's columns don't shrink */
+.row-slide .et_pb_column {
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-inline-end: 30px;
+}
+
+/* Override any potential Divi styles that could interfere */
+.row-slide.et_pb_row {
+    transform: none !important;
+    transition: none !important;
+}

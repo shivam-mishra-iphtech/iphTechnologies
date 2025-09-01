@@ -1,34 +1,38 @@
 #divi-global-popup {
     position: fixed;
-    top: 0; 
+    top: 0;
     left: 0;
-    width: 100%; 
-    height:100%;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    display: none;
+    display: none; /* shown with `.show` */
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    padding: 10px;
+    padding: 20px;
     opacity: 0;
     transition: opacity 0.3s ease;
     overflow-y: auto;
 }
 
 #divi-global-popup.show {
+    display: flex;   /* ⬅️ Make sure this is here */
     opacity: 1;
 }
-
 .popup-main-container {
     max-width: 880px;
-    max-height: 560px;
-    height: 100%;
     width: 100%;
+    max-height: 100vh;      /* prevent overflowing screen */
+    background: transparent;     /* optional */
+    overflow: auto;        /* scroll within container if needed */
+    padding: 20px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 60px;
+    margin-top: 50px;
 }
+
 
 .popup-content-container {
     background: #fff;
@@ -50,11 +54,11 @@
     position: absolute;
     top: 0px;
     right: 0px;
-    font-size: 28px;
+    font-size: 34px;
     color: #666;
     cursor: pointer;
     z-index: 1000;
-    transition: all 0.2s ease;
+    transition: all 0.4s ease;
     width: 40px;
     height: 40px;
     display: flex;
@@ -64,64 +68,89 @@
 }
 
 .popup-close:hover {
-    color: #000;
+    
+    color: rgba(241, 41, 41, 0.759);
     background-color: rgba(0,0,0,0.05);
     transform: rotate(90deg);
 }
 
-/* Improved Testimonial Card Design */
-.testimonial-card {
+/* Testimonial Section */
+.testimonial-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 10px;
+    padding: 15px;
+    height: 100%;
+    position: relative;
+}
+
+.testimonial-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-content h5 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.testimonial-content p.text-muted {
+    font-size: 10px;
+    margin-bottom: 15px !important;
+}
+.testimonial-card-body{
     background: white;
     border-radius: 12px;
-    padding: 10px 10px 10px;
+    padding: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.testimonial-card p{
-    font-size: 11px;
+
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.popup-content-container 
-.wpcf7-not-valid-tip {
-    color: #dc3232;
+
+.testimonial-card p {
     font-size: 10px;
-    font-weight: normal;
-    display: block;
+    line-height: 1.4;
+    margin-bottom: 8px !important;
 }
-.popup-content-container p{
-    margin-bottom: 7px !important;
-}
-
-.wpcf7 form .wpcf7-response-output,
-.wpcf7 form.invalid .wpcf7-response-output{
-    margin-top: -3em !important;
-}
-
 
 .testimonial-img-container {
-    margin-bottom: 15px;
-    position: relative;
+    margin-bottom: 10px;
 }
 
 .testimonial-img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid rgb(72, 70, 70);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .testimonial-quote {
     position: relative;
-    padding: 0 10px;
+    padding: 0 5px;
     text-align: center;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+}
+
+.testimonial-quote h6 {
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.testimonial-quote small {
+    font-size: 9px;
+    margin-bottom: 8px !important;
 }
 
 .testimonial-quote::before {
@@ -129,12 +158,74 @@
     font-size: 40px;
     color: rgba(13, 110, 253, 0.1);
     position: absolute;
-    top: -20px;
+    top: -15px;
     left: 0;
     line-height: 1;
     font-family: Georgia, serif;
 }
 
+.stars img {
+    width: 80px;
+    height: auto;
+    margin-top: 5px;
+}
+
+/* Form Section */
+.form-section {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    gap:50px;
+}
+
+.form-section h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.form-section p.text-muted {
+    font-size: 10px;
+    margin-bottom: 5px !important;
+}
+
+.custom-form-wrapper input,
+.custom-form-wrapper select,
+.custom-form-wrapper textarea {
+    font-size: 12px !important;
+    padding: 6px 8px !important;
+    height: 30px !important;
+}
+
+.custom-form-wrapper textarea {
+    height: 70px !important;
+    min-height: 70px !important;
+}
+
+.popup-content-container .wpcf7-not-valid-tip {
+    font-size: 8px !important;
+    margin-top: 2px;
+}
+
+.popup-content-container .wpcf7 form .wpcf7-response-output {
+    border-radius: 6px !important;
+    font-size: 9px !important;
+    margin: 5px 0 !important;
+    padding: 5px !important;
+}
+
+.popup-content-container p {
+    margin-bottom: 1px !important;
+}
+
+.popup_submit_btn_style {
+    font-size: 12px !important;
+    padding: 6px !important;
+    height: auto !important;
+}
+
+/* Bottom Bar */
 .bottom-bar {
     background-color: #ffff;
     border-radius: 10px;
@@ -158,59 +249,6 @@
     font-weight: 600;
 }
 
-.testimonial-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 10px;
-    padding: 15px;
-    height: 100%;
-    position: relative;
-}
-
-.form-section {
-    background: #fff;
-    border-radius: 10px;
-    padding: 15px;
-    height: 100%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.carousel-control-prev, 
-.carousel-control-next {
-    width: 35px !important;
-    height: 35px !important;
-    background-color: rgba(0, 0, 0, 0.2) !important;
-    border-radius: 50% !important;
-    top: 50% !important;
-    transform: translateY(-50%);
-    opacity: 1;
-    transition: all 0.3s ease;
-}
-
-.carousel-control-prev:hover, 
-.carousel-control-next:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.carousel-control-prev {
-    left: -30px;
-}
-
-.carousel-control-next {
-    right: -30px;
-}
-
-
-
-.invalid-feedback {
-    font-size: 13px;
-}
-
-.stars {
-    color: #ffc107;
-    font-size: 18px;
-    margin-top: 10px;
-}
-
 .stats-section {
     display: flex;
     flex-direction: column;
@@ -220,7 +258,7 @@
 }
 
 .stats-section p {
-    margin-bottom: 0px;
+    margin-bottom: 5px;
     font-size: 12px;
     white-space: nowrap;
 }
@@ -241,27 +279,118 @@
 .award-card {
     background: white;
     border-radius: 8px;
-    padding: 10px 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    padding: 8px 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
-    min-width: 170px;
-    height: 20px;
+    min-width: 150px;
+    height: 50px;
     flex-shrink: 0;
 }
 
 .award-card img {
-    height: 5px;
+    height: 30px;
     width: auto;
-    margin-right: 10px;
+    margin-right: 8px;
     object-fit: contain;
 }
 
 .award-card span {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 600;
 }
 
+/* Carousel Controls */
+.carousel-control-prev, 
+.carousel-control-next {
+    width: 25px !important;
+    height: 25px !important;
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    border-radius: 50% !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.carousel-control-prev:hover, 
+.carousel-control-next:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.carousel-control-prev {
+    left: -15px;
+}
+
+.carousel-control-next {
+    right: -15px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 12px !important;
+    height: 12px !important;
+}
+
+/* Form Elements */
+.custom-form-wrapper .custom-input,
+.custom-form-wrapper .custom-textarea,
+.custom-form-wrapper .custom-select {
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 5px 8px;
+    font-size: 10px !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.custom-form-wrapper .custom-textarea {
+    max-height: 70px;
+    resize: vertical;
+}
+
+.popup_submit_btn_style {
+    background-color: #ff7c00 !important;
+    color: #ffff !important;
+    font-weight: 700 !important;
+    border: 0px solid #ff7c00 !important;
+    border-radius: 6px;
+    font-size: 12px !important;
+    transition: background-color 0.3s ease;
+    padding: 30px 20px !important;
+}
+
+.popup_submit_btn_style:hover {
+    border: 0px solid #e96f00 !important;
+    background-color: #e96f00 !important;
+    color: #ffff;
+    cursor: pointer;
+}
+
+.custom-form-wrapper input:focus,
+.custom-form-wrapper textarea:focus,
+.custom-form-wrapper select:focus {
+    box-shadow: none !important;
+    outline: none;
+}
+.form-body-scroll .wpcf7-spinner{
+    position: absolute !important;
+    margin-top: 5px !important;
+    right: 40px !important;
+}
+.form-body-scroll .et_pb_button:after{
+    display: none !important;
+}
+.form-info-style {
+    margin-top: 10px !important;
+}
+
+.form-info-style p {
+    line-height: 3px !important;
+    margin-bottom: 0px; /* or 5px depending on desired spacing */
+}
+
+/* Animations */
 @keyframes scroll {
     0% {
         transform: translateX(0);
@@ -271,6 +400,7 @@
     }
 }
 
+/* Responsive Adjustments */
 @media (min-width: 768px) {
     .bottom-bar-content {
         flex-direction: row;
@@ -279,13 +409,22 @@
     
     .stats-section {
         margin-bottom: 0;
-        padding-right: 20px;
+        padding-right: 15px;
         border-right: 1px solid #dee2e6;
-        margin-right: 20px;
+        margin-right: 15px;
     }
     
     .marquee-container {
         flex: 1;
+    }
+    
+    .testimonial-card {
+        padding: 15px;
+    }
+    
+    .testimonial-img {
+        width: 70px;
+        height: 70px;
     }
 }
 
@@ -301,16 +440,20 @@
     }
     
     .popup-content-container {
-        padding: 25px 15px;
+        padding: 15px;
     }
     
-    .bottom-bar {
-        gap: 10px;
+    .row.g-2 {
+        flex-direction: column;
+    }
+    
+    .col-lg-6 {
+        width: 100%;
     }
     
     .testimonial-section, 
     .form-section {
-        padding: 20px;
+        padding: 15px;
     }
 
     .carousel-control-prev {
@@ -323,106 +466,51 @@
     
     .stats-section p {
         white-space: normal;
-        font-size: 13px;
+        font-size: 11px;
         text-align: center;
     }
     
     .award-card {
-        min-width: 160px;
-        padding: 8px 12px;
-    }
-    
-    .testimonial-card {
-        padding: 20px 15px 15px;
+        min-width: 140px;
+        padding: 6px 10px;
     }
 }
 
 @media (max-width: 576px) {
     .popup-content-container {
-        padding: 20px 10px;
+        padding: 12px;
     }
     
     .bottom-bar {
-        padding: 10px;
-    }
-    
-    .bottom-bar span {
-        white-space: normal;
-        text-align: center;
+        padding: 8px;
     }
     
     .testimonial-img {
-        width: 70px;
-        height: 70px;
+        width: 50px;
+        height: 50px;
     }
     
     .form-section h3 {
-        font-size: 1.5rem;
+        font-size: 16px;
+    }
+    
+    .award-card {
+        min-width: 120px;
+        height: 45px;
+    }
+    
+    .award-card img {
+        height: 25px;
+    }
+    
+    .award-card span {
+        font-size: 9px;
+    }
+    
+    .stats-section p {
+        font-size: 10px;
     }
 }
-.custom-form-wrapper{
-    padding-bottom: 5px !important;
-    margin-bottom: -50px !important;
-}
-
-.custom-form-wrapper .custom-input,
-.custom-form-wrapper .custom-textarea,
-.custom-form-wrapper .custom-select {
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  padding: 3px 6px !important;
-  font-size: 12px !important;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-
-.custom-form-wrapper .custom-textarea {
-  max-height: 65px;
-  resize: vertical;
-  
-}
-body .popup_submit_btn_style {
-    background-color: #ff7c00 !important;
-    color: #ffff !important;
-    font-weight: 700px;
-    border: none;
-    border-radius: 6px;
-    font-size: 12px !important;
-    transition: background-color 0.3s ease;
-  }
-  
-  .popup_submit_btn_style:hover {
-    background-color: #e96f00 !important;
-    color: #ffff;
-    cursor: pointer;
-  }
-  
-  .custom-form-wrapper input:focus,
-.custom-form-wrapper textarea:focus,
-.custom-form-wrapper select:focus {
-  box-shadow: none !important;
-  outline: none;
-  
-}
-.popup-content-container .wpcf7 form .wpcf7-response-output {
-    /* margin: 2em 0.5em 1em; */
-    font-size: 10px;
-    
-    margin-top: -30px !important;
-}
-.form-section  .wpcf7-spinner{
-    display: none !important;
-    margin-top: -20px !important;
-}
-
-
-
-
 
 
   
-
-
-
-

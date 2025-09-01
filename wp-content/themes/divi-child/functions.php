@@ -3,7 +3,7 @@
 function divi_child_enqueue_styles() {
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
     wp_enqueue_style('child-style', get_stylesheet_uri(), array('parent-style'));
-    add_filter( 'wpcf7_load_css', '__return_false' );
+    add_filter( 'wpcf7_load_css', '__return_false');
 
 }
 add_action('wp_enqueue_scripts', 'divi_child_enqueue_styles');
@@ -341,4 +341,20 @@ function divi_card_slider_shortcode() {
     <?php
     return ob_get_clean();
 }
-add_shortcode('divi_card_slider', 'divi_card_slider_shortcode');
+function divi_child_enqueue_slider() {
+    wp_enqueue_style(
+        'divi-row-slider-css',
+        get_stylesheet_directory_uri() . '/css/divi-marquee.css',
+        array(),
+        null
+    );
+
+    wp_enqueue_script(
+        'divi-row-slider-js',
+        get_stylesheet_directory_uri() . '/js/divi-marquee.js',
+        array(),
+        null,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'divi_child_enqueue_slider');
